@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body style="font-family: 'Tahoma';">
+
+    <label for="txtNombre">¿Cual es tu nombre?</label> 
+    <input type="text" name="txtNombre" id="txtNombre">
+    <input type="button" value="Saludar" id="btnSaludar"><br/>
+    <label id="lblPresentarse"></label>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#btnSaludar").click(function(){
+                var nombre = $("#txtNombre").val();
+                var saludar = "Hola, mi nombre es " + nombre;
+                if(nombre.length % 2 == 0){
+                    $("#lblPresentarse").css("color","blue");
+                } else {
+                    $("#lblPresentarse").css("color","red");
+                }
+                $("#lblPresentarse").text(saludar);
+            });
+
+            $("#txtNombre").keypress(function(){
+                var nombre = $("#txtNombre").val();
+                $("#lblPresentarse").text(nombre);
+            });
+
+            $("#txtNombre").keydown(function(){
+                var nombre = $("#txtNombre").val();
+                $("#lblPresentarse").text(nombre);
+            });
+
+            $("#txtNombre").keyup(function(){
+                var nombre = $("#txtNombre").val();
+                $("#lblPresentarse").text(nombre);
+            });
+        });
+    </script>
+</body>
+</html>
